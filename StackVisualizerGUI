@@ -1,0 +1,142 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+public class StackVisualizerGUI extends JFrame {
+    private final ArrayBoundedStack stackBackend;
+    private final JLabel[] visualSlots = new JLabel[10]; 
+    private final JTextField inputField;
+    private final JLabel statusLabel;
+
+    public StackVisualizerGUI() {
+        // 10-element limit
+        this.stackBackend = new ArrayBoundedStack(10);
+
+        // Window Configuration
+        setTitle("Simple Stack Visualizer");
+        setSize(400, 550);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout(10, 10));
+
+        // top
+        // button panels and input
+        JPanel northPanel = new JPanel(new BorderLayout(5, 5));
+        
+        JPanel inputRow = new JPanel(new FlowLayout());
+        inputField = new JTextField(5);
+        inputRow.add(new JLabel("Enter Integer: "));
+        inputRow.add(inputField);
+
+        JPanel buttonGrid = new JPanel(new GridLayout(3, 2, 5, 5));
+        JButton pushBtn = new JButton("Push");
+        JButton popBtn = new JButton("Pop");
+        JButton peekBtn = new JButton("Peek");
+        JButton clearBtn = new JButton("Clear");
+        JButton checkBtn = new JButton("Check Stack");
+        JButton randomBtn = new JButton("Random");
+
+        buttonGrid.add(pushBtn);
+        buttonGrid.add(popBtn);
+        buttonGrid.add(peekBtn);
+        buttonGrid.add(clearBtn);
+        buttonGrid.add(checkBtn);
+        buttonGrid.add(randomBtn);
+
+        northPanel.add(inputRow, BorderLayout.NORTH);
+        northPanel.add(buttonGrid, BorderLayout.CENTER);
+        add(northPanel, BorderLayout.NORTH);
+
+        // center 
+        // vertical grid
+        JPanel displayGrid = new JPanel(new GridLayout(10, 1, 5, 5));
+        displayGrid.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
+
+        // loop backwards so new items stack up vertically instead of down
+        for (int i = 9; i >= 0; i--) {
+            visualSlots[i] = new JLabel("[ Empty Slot ]", SwingConstants.CENTER);
+            visualSlots[i].setOpaque(true);
+            visualSlots[i].setBackground(Color.LIGHT_GRAY);
+            visualSlots[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            displayGrid.add(visualSlots[i]);
+        }
+        add(displayGrid, BorderLayout.CENTER);
+
+        // north
+        // status check
+        statusLabel = new JLabel("Status: Idle");
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        southPanel.add(southPanel);
+        add(southPanel, BorderLayout.SOUTH);
+
+        // connects actions to their buttons
+        pushBtn.addActionListener(e -> handlePush());
+        popBtn.addActionListener(e -> handlePop());
+        peekBtn.addActionListener(e -> handlePeek());
+        clearBtn.addActionListener(e -> handleClear());
+        checkBtn.addActionListener(e -> handleCheck());
+        randomBtn.addActionListener(e -> handleRandom());
+    }
+
+    // I finished the screen refresh loop so the grid updates automatically
+    private void refreshVisualDisplay() {
+        int[] activeItems = stackBackend.getRawElements();
+        
+        for (int i = 0; i < 10; i++) {
+            if (i < activeItems.length) {
+                visualSlots[i].setText("[" + activeItems[i] + "]");
+                visualSlots[i].setBackground(Color.CYAN); 
+            } else {
+                visualSlots[i].setText("[ Empty Slot ]");
+                visualSlots[i].setBackground(Color.LIGHT_GRAY);
+            }
+        }
+
+        if (!stackBackend.isEmpty()) {
+            int topPos = stackBackend.size() - 1;
+            visualSlots[topPos].setText("TOP ➔ [" + activeItems[topPos] + "]");
+            visualSlots[topPos].setBackground(Color.STEEL_BLUE); 
+        }
+    }
+
+    // I coded data checking and Push operation
+    private void handlePush() {
+        try {
+            int val = Integer.parseInt(inputField.getText().trim());
+            stackBackend.push(val);
+            statusLabel.setText("SUCCESS: Pushed value " + val);
+            inputField.setText("");
+            refreshVisualDisplay();
+        } catch (NumberFormatException ex) {
+            statusLabel.setText("ERROR: Please enter a valid integer.");
+        } catch (StackOverflowError ex) {
+            statusLabel.setText("STACK OVERFLOW: Cannot push, stack is full");
+        }
+    }
+
+    private void handleClear() {
+       // TODO: code the clear logic here
+    }
+
+    private void handlePop() {
+        // TODO: code the pop logic here
+    }
+
+    private void handlePeek() {
+        // TODO: code peek logic and magenta highlight flash here
+    }
+
+    private void handleCheck() {
+        // TODO: code the empty/full tracker messages here
+    }
+
+    private void handleRandom() {
+        // TODO: code the random 1-100 size generator loop here
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new StackVisualizerGUI().setVisible(true);
+        });
+    }
+}
