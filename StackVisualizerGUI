@@ -69,7 +69,7 @@ public class StackVisualizerGUI extends JFrame {
         southPanel.add(southPanel);
         add(southPanel, BorderLayout.SOUTH);
 
-        // connects actions to their buttons
+        // actions to buttons
         pushBtn.addActionListener(e -> handlePush());
         popBtn.addActionListener(e -> handlePop());
         peekBtn.addActionListener(e -> handlePeek());
@@ -78,7 +78,7 @@ public class StackVisualizerGUI extends JFrame {
         randomBtn.addActionListener(e -> handleRandom());
     }
 
-    // I finished the screen refresh loop so the grid updates automatically
+    // screen refresh loop so the grid updates automatically
     private void refreshVisualDisplay() {
         int[] activeItems = stackBackend.getRawElements();
         
@@ -99,7 +99,7 @@ public class StackVisualizerGUI extends JFrame {
         }
     }
 
-    // I coded data checking and Push operation
+    // data check and push operation
     private void handlePush() {
         try {
             int val = Integer.parseInt(inputField.getText().trim());
