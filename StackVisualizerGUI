@@ -101,37 +101,26 @@ public class StackVisualizerGUI extends JFrame {
 
     // data check and push operation
     private void handlePush() {
-        try {
-            int val = Integer.parseInt(inputField.getText().trim());
-            stackBackend.push(val);
-            statusLabel.setText("SUCCESS: Pushed value " + val);
-            inputField.setText("");
-            refreshVisualDisplay();
-        } catch (NumberFormatException ex) {
-            statusLabel.setText("ERROR: Please enter a valid integer.");
-        } catch (StackOverflowError ex) {
-            statusLabel.setText("STACK OVERFLOW: Cannot push, stack is full");
-        }
-    }
+       // TODP: code handle
 
     private void handleClear() {
-       // TODO: code the clear logic here
+       // TODO: code the clear logic 
     }
 
     private void handlePop() {
-        // TODO: code the pop logic here
+        // TODO: code the pop logic 
     }
 
     private void handlePeek() {
-        // TODO: code peek logic and magenta highlight flash here
+        // TODO: code peek logic and magenta highlight flash 
     }
 
     private void handleCheck() {
-        // TODO: code the empty/full tracker messages here
+        // TODO: code the empty/full tracker messages 
     }
 
     private void handleRandom() {
-        // TODO: code the random 1-100 size generator loop here
+        // TODO: code the random 1-100 size generator loop 
     }
 
     public static void main(String[] args) {
