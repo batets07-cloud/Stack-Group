@@ -39,12 +39,14 @@ public class ArrayBoundedStack {
         return topIndex + 1;
     }
 
-    public int getCapacity() {
-        return capacity;
+        public int getCapacity() {
+        // TODO: Return the maximum capacity of the stack
+        return 0;
     }
     
     public boolean isFull() { 
-        return topIndex == capacity - 1; 
+        // TODO: Check if the stack has reached its maximum capacity
+        return false; 
     }
     
     // erases everything from the array
