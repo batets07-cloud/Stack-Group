@@ -28,8 +28,44 @@ public class ArrayBoundedStack {
     public boolean isEmpty() { 
         return topIndex == -1; 
     }
+
+    // erases everything from the array
+    public void clear() {
+        this.topIndex = -1;
+    }
+
+    // tracks current element count
+    public int size() {
+        return topIndex + 1;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
     
     public boolean isFull() { 
         return topIndex == capacity - 1; 
+    }
+    
+    // erases everything from the array
+    public void clear() {
+        // TODO: Reset the stack to an empty state
+    }
+
+    // tracks current element count
+    public int size() {
+        // TODO: Return the number of elements currently in the stack
+        return 0;
+    }
+
+    public int getCapacity() {
+        // TODO: Return the maximum capacity of the stack
+        return 0;
+    }
+
+    // safe way for the GUI to grab copies of the numbers to draw them
+    public int[] getRawElements() {
+        // TODO: Copy and return only the active elements in the stack
+        return new int[0];
     }
 }
