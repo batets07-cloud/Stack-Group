@@ -104,7 +104,20 @@ public class StackVisualizerGUI extends JFrame {
        // TODP: code handle
 
     private void handleClear() {
-       // TODO: code the clear logic 
+    try {
+        int value = Integer.parseInt(inputField.getText());
+
+        if (stackBackend.size() >= 10) {
+            statusLabel.setText("Status: Stack is Full!");
+        } else {
+            stackBackend.push(value);
+            statusLabel.setText("Status: Pushed " + value);
+            inputField.setText("");
+            refreshVisualDisplay();
+        }
+    } catch (NumberFormatException e) {
+        statusLabel.setText("Status: Enter a valid integer!");
+    }
     }
 
     private void handlePop() {
