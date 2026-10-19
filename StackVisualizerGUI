@@ -143,7 +143,14 @@ public class StackVisualizerGUI extends JFrame {
         visualSlots[topPos].setBackground(Color.MAGENTA);
     }
     }private void handleCheck() {
-        // TODO: code the empty/full tracker messages 
+     if (stackBackend.isEmpty()) {
+        statusLabel.setText("Status: Stack is Empty!");
+    } else if (stackBackend.size() == 10) {
+        statusLabel.setText("Status: Stack is Full!");
+    } else {
+        statusLabel.setText("Status: Stack has "
+                + stackBackend.size() + " elements.");
+    }
     }
 
     private void handleRandom() {
