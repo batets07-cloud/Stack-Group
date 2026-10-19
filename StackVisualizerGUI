@@ -101,10 +101,7 @@ public class StackVisualizerGUI extends JFrame {
 
     // data check and push operation
     private void handlePush() {
-       // TODP: code handle
-
-    private void handleClear() {
-    try {
+       try {
         int value = Integer.parseInt(inputField.getText());
 
         if (stackBackend.size() >= 10) {
@@ -118,17 +115,34 @@ public class StackVisualizerGUI extends JFrame {
     } catch (NumberFormatException e) {
         statusLabel.setText("Status: Enter a valid integer!");
     }
-    }
+    }private void handleClear() {
 
-    private void handlePop() {
-        // TODO: code the pop logic 
-    }
+    stackBackend.clear();
+    statusLabel.setText("Status: Stack Cleared!");
+    refreshVisualDisplay();
 
-    private void handlePeek() {
-        // TODO: code peek logic and magenta highlight flash 
+    }private void handlePop() {
+        if (stackBackend.isEmpty()) {
+        statusLabel.setText("Status: Stack is Empty!");
+    } else {
+        int removed = stackBackend.pop();
+        statusLabel.setText("Status: Popped " + removed);
+        refreshVisualDisplay();
     }
+    }private void handlePeek() {
+        if (stackBackend.isEmpty()) {
+        statusLabel.setText("Status: Stack is Empty!");
+    } else {
+        int[] activeItems = stackBackend.getRawElements();
+        int topPos = stackBackend.size() - 1;
+        int topValue = activeItems[topPos];
 
-    private void handleCheck() {
+        statusLabel.setText("Status: Top element is " + topValue);
+
+        visualSlots[topPos].setText("TOP ➔ [" + topValue + "]");
+        visualSlots[topPos].setBackground(Color.MAGENTA);
+    }
+    }private void handleCheck() {
         // TODO: code the empty/full tracker messages 
     }
 
