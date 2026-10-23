@@ -5,12 +5,14 @@ public class ArrayBoundedStack {
     private int topIndex;
     private final int capacity;
 
+    // Constructor for the 10-element limit
     public ArrayBoundedStack(int capacity) {
         this.capacity = capacity;
         this.elements = new int[capacity];
-        this.topIndex = -1; // -1 means empty
+        this.topIndex = -1; // -1 means the array is completely empty
     }
 
+    // adds an item to the top
     public void push(int value) {
         if (isFull()) {
             throw new StackOverflowError("STACK OVERFLOW: Cannot push, stack is full");
@@ -18,6 +20,7 @@ public class ArrayBoundedStack {
         elements[++topIndex] = value;
     }
 
+    // removes and returns the top item
     public int pop() {
         if (isEmpty()) {
             throw new EmptyStackException();
@@ -25,8 +28,22 @@ public class ArrayBoundedStack {
         return elements[topIndex--];
     }
 
-    public boolean isEmpty() { 
-        return topIndex == -1; 
+    // glances at the top item without deleting it
+    public int peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return elements[topIndex];
+    }
+
+    // checks if the stack is empty
+    public boolean isEmpty() {
+        return topIndex == -1;
+    }
+
+    // checks if the 10 element limit is hit
+    public boolean isFull() {
+        return topIndex == capacity - 1;
     }
 
     // erases everything from the array
@@ -39,35 +56,14 @@ public class ArrayBoundedStack {
         return topIndex + 1;
     }
 
-        public int getCapacity() {
-        // TODO: Return the maximum capacity of the stack
-        return 0;
-    }
-    
-    public boolean isFull() { 
-        // TODO: Check if the stack has reached its maximum capacity
-        return false; 
-    }
-    
-    // erases everything from the array
-    public void clear() {
-        // TODO: Reset the stack to an empty state
-    }
-
-    // tracks current element count
-    public int size() {
-        // TODO: Return the number of elements currently in the stack
-        return 0;
-    }
-
     public int getCapacity() {
-        // TODO: Return the maximum capacity of the stack
-        return 0;
+        return capacity;
     }
 
     // safe way for the GUI to grab copies of the numbers to draw them
     public int[] getRawElements() {
-        // TODO: Copy and return only the active elements in the stack
-        return new int[0];
+        int[] activeElements = new int[size()];
+        System.arraycopy(elements, 0, activeElements, 0, size());
+        return activeElements;
     }
 }
