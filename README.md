@@ -1,6 +1,6 @@
 # Simple 2D Stack Visualizer Application
 
-## 👥 Group Information
+## Group Information
 * **Group Name:** [Walang Ewanan]
 * **Group Members:**
   * Belar, Aze Jiazeler Jobe C. Belar
@@ -9,12 +9,12 @@
 
 ---
 
-## 📝 Description of the Program
+## Description of the Program
 This application is a 2D graphical visualization tool designed to demonstrate the mechanics of the **Stack Abstract Data Type (ADT)**. Built using Java swing, the program provides an interactive dashboard where users can perform core stack mutations and view structural state transitions in real time. 
 
 ---
 
-## 🚀 Features
+## Features
 * **LIFO Operation Tracking:** Visually animates standard stack primitives including `Push`, `Pop`, and `Peek`.
 * **Bounded Index Protection:** Enforces a rigid structure array capacity limit of exactly 10 data nodes.
 * **Dynamic Exception Toasting:** Displays clear contextual warnings for structural validation threshold violations (`STACK OVERFLOW` and `STACK UNDERFLOW`).
@@ -23,14 +23,14 @@ This application is a 2D graphical visualization tool designed to demonstrate th
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 * **Java Development Kit (JDK):** Version 8 or higher.
 * **Operating System:** Windows, macOS, or Linux.
 * **IDE (Optional):** NetBeans, Eclipse, IntelliJ IDEA, or VS Code.
 
 
 
-## 💻 How to Run the Program
+## How to Run the Program
 1. **Compile the Code:**
    Open your system command prompt or terminal inside the project source folder and run:
    ```
@@ -44,7 +44,7 @@ This application is a 2D graphical visualization tool designed to demonstrate th
 ---
 
 
-## 📂 Project Structure
+## Project Structure
 src/
 ├── ArrayBoundedStack.java   # Core Data Structure Logic Component
 └── StackVisualizerGUI.java  # Swing/AWT Graphical Interface Window Component
@@ -53,7 +53,7 @@ src/
 ---
 
 
-## 📊 Stack Implementation
+## Stack Implementation
 The application implements an **Array-Based Bounded Stack** utilizing primitive data logic:
 * **Storage Allocation:** Handled via a private fixed array sequence `int[] elements` mapped to a max parameter boundary constraint of `10`.
 * **Tracking Pointer:** Driven by a scalar tracker variable `int top` initialized at `-1` to explicitly register structural vacancies.
@@ -61,7 +61,7 @@ The application implements an **Array-Based Bounded Stack** utilizing primitive 
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ---
 
@@ -79,5 +79,5 @@ AI DISCLOSURE STATEMENT:
 
 ---
 
-## 🤝 Contributors
+## Contributors
 
