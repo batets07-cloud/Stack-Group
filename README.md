@@ -3,7 +3,7 @@
 ## Group Information
 * **Group Name:** [Walang Ewanan]
 * **Group Members:**
-  * Belar, Aze Jiazeler Jobe C. Belar
+  * Belar, Aze Jiazeler Jobe C.
   * Noeljr Depita
   * Marialyn Bahian Leong
 
