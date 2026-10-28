@@ -46,6 +46,7 @@ This application is a 2D graphical visualization tool designed to demonstrate th
 
 ## Project Structure
 src/
+
 ├── ArrayBoundedStack.java   # Core Data Structure Logic Component
 
 └── StackVisualizerGUI.java  # Swing/AWT Graphical Interface Window Component
