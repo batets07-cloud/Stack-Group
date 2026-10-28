@@ -1,3 +1,13 @@
+/* Description: 2D stack visualizer
+Programmed by: Belar, Noeljr, Marialyn
+Last Modified: October 27, 2026
+Version: 1.0.0
+Acknowledgements:
+Gemini (AI) - for providing boilerplate and structure.
+Bro Code (YouTube) - for foundational tutorials on java swing components (JButtons, JPanels) and event handling.
+Java Code Junkie (YouTube) - Insights into clean UI and layout management
+*/
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
